@@ -43,6 +43,14 @@ router.post('/', async (req, res, next) => {
         break;
     }
 
+    if (account.balance < 0) {
+      console.error('ERROR: Negative Balance');
+      res.status(500).json({
+        'message': 'ERROR: Negative Balance'
+      });
+      next();
+      return;
+    }
 
     const t = await TransactionService.create(aTransaction);
     await AccountService.save(account.balance);
