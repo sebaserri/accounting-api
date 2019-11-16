@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * Express Routing
  */
-const transactionRouter = require('../routes/transaction');
+const transactionRouter = require('../routes/router');
 
 app.use('/api/transaction', transactionRouter);
 
