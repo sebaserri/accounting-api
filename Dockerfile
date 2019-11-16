@@ -4,5 +4,5 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install --develop --silent && mv node_modules ../
 COPY . .
-EXPOSE 3001
+EXPOSE 3002
 CMD [ "npm", "start" ]

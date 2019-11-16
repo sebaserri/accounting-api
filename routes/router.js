@@ -33,11 +33,12 @@ router.post('/', async (req, res, next) => {
   try {
     const aTransaction = await TransactionRequest.validateRequest(req);
 
-    let account = await AccountService.find('USER');
-
-    
-    if (!account) {
+    let accountDb = await AccountService.find('USER');
+    let account;
+    if (!accountDb) {
       account = new Account('USER', 0);
+    } else {
+      account = new Account(accountDb.name, accountDb.balance)
     }
 
     switch (aTransaction.type) {
@@ -59,7 +60,7 @@ router.post('/', async (req, res, next) => {
     }
 
     const t = await TransactionService.create(aTransaction);
-    await AccountService.save(account);
+    await AccountService.update(account);
 
     res.status(201).json({
       'result': {
