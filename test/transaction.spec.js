@@ -24,7 +24,7 @@ describe('GET /api/transaction/:id', function () {
 describe('POST /api/transaction', function () {
     let data = {
         "type": "credit",
-        "amount": "300",
+        "amount": 300,
     };
     it('respond with 201 created', function (done) {
         request(app)
