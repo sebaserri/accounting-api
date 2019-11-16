@@ -32,7 +32,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"type\": \"credit\",\n\t\"amount\": \"200\"\n}"
+					"raw": "{\n\t\"type\": \"credit\",\n\t\"amount\": 200\n}"
 				},
 				"description": ""
 			},

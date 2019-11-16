@@ -6,6 +6,7 @@ const moment = require('moment');
 
 const TransactionService = require('../service/transaction');
 const AccountService = require('../service/account');
+const Account = require('../model/Account');
 
 const TransactionRequest = require('../utils/TransactionRequest');
 
@@ -32,7 +33,12 @@ router.post('/', async (req, res, next) => {
   try {
     const aTransaction = await TransactionRequest.validateRequest(req);
 
-    const account = await AccountService.get();
+    let account = await AccountService.find('USER');
+
+    
+    if (!account) {
+      account = new Account('USER', 0);
+    }
 
     switch (aTransaction.type) {
       case operations.CREDIT:
@@ -53,7 +59,7 @@ router.post('/', async (req, res, next) => {
     }
 
     const t = await TransactionService.create(aTransaction);
-    await AccountService.save(account.balance);
+    await AccountService.save(account);
 
     res.status(201).json({
       'result': {

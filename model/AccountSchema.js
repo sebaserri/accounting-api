@@ -5,6 +5,10 @@ const AccountSchema = new Schema({
     balance: {
         type: Number,
         required: true
+    },
+    name: {
+        type: String,
+        required: true
     }
 });
 

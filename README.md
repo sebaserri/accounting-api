@@ -40,7 +40,7 @@ Method: POST - URL: /api/transaction - Payload:
 ```bash
 {
 	"type": "credit",
-	"amount": "150"
+	"amount": 150
 }
 ```
 

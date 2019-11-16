@@ -1,8 +1,9 @@
 'use strict';
 
 class Account {
-  constructor(balance) {
+  constructor(name, balance) {
     this.balance = balance;
+    this.name = name;
   }
 
   increase(value) {
@@ -13,9 +14,6 @@ class Account {
       this.balance -= value;
   }
 
-  get balance() {
-      return this.balance; 
-  }
 }
 
 module.exports = Account;
