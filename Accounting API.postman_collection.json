@@ -1,0 +1,53 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Accounting API",
+		"_postman_id": "62e4ec90-d1bf-4113-b27d-d4ba338341ef",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Accounting - GET by TransactionId",
+			"request": {
+				"url": "http://localhost:3001/api/transaction/f54580e3-0fd4-4923-bc06-e9383257533b",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Accounting - POST",
+			"request": {
+				"url": "http://localhost:3001/api/transaction",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"credit\",\n\t\"amount\": \"200\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Accounting - GET All",
+			"request": {
+				"url": "http://localhost:3001/api/transaction",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

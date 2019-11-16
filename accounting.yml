@@ -1,0 +1,16 @@
+config:
+  target: "http://localhost:3001/api/transaction"
+  phases:
+    - duration: 30
+      arrivalRate: 20
+scenarios:
+  - flow:
+      - get:
+          url: "/"
+      - post:
+          url: "/"
+          json:
+            type: "credit"
+            amount: 100
+      - get:
+          url: "/c719d359-a6d2-41ee-9d8c-32de274bf791"
